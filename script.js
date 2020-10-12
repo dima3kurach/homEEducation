@@ -9,6 +9,9 @@ let h = Math.sqrt((d**2) / 2 + a**2); //height
 let S = a**2; //square
 let V = S * h / 3; //volume
 
-console.log('Is our pyramid bigger than the piramid of Heops? -', V > pHeops);
-console.log('Is our pyramid bigger than the piramid of Khafre? -', V > pKhafre);
-console.log('Is our pyramid bigger than the piramid of Menkaure? -', V > pMenkaure);
+V > pHeops ? console.log('Our pyramid is bigger than the piramid of Heops') :
+			 console.log('Our pyramid is smaller than the piramid of Heops');
+V > pKhafre ? console.log('Our pyramid is bigger than the piramid of Khafre') :
+			  console.log('Our pyramid is smaller than the piramid of Khafre');
+V > pMenkaure ? console.log('Our pyramid is bigger than the piramid of Menkaure') :
+			    console.log('Our pyramid is smaller than the piramid of Menkaure');
