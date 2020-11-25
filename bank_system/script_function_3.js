@@ -1,42 +1,32 @@
 const fs = require('fs'); // file system
 const readline = require('readline'); //input-output
 	
-const clientsList = [];
-const cardsList = [];
-
-const hostList = [];
-const host1 = {
-	firstName: 'Mahatma',
-	lastName: 'Gandi',
-	position: 'administrator',
-	login: 'admin',
-	pass: 'ad123'
-}
-hostList.push(host1);
-
 
 const Bank = function () {
+	const adminsData = [];
+	const host1 = {
+		firstName: 'Mahatma',
+		lastName: 'Gandi',
+		position: 'administrator',
+		login: 'admin',
+		pass: 'ad123'
+	}
+	adminsData.push(host1);
+
+	const saveData = () => {
+		return fs.writeFileSync('data.json', JSON.stringify(data), 'utf8')
+	}
 
 	const loadData = () => {
 		if (fs.existsSync('./data.json', 'utf0')) { 
-			clientsList.push(...JSON.parse(fs.readFileSync('./data.json', 'utf8')).clients);
-			cardsList.push(...JSON.parse(fs.readFileSync('./data.json', 'utf8')).cards);
+			return JSON.parse(fs.readFileSync('./data.json', 'utf8'))
+		}
+		else {
+			return {clients: [], cards: []}
 		}
 	}
-	
-	const saveData = () => {
-		return fs.writeFileSync('data.json', JSON.stringify({clients: clientsList, cards: cardsList}), 'utf8')
-	}
 
-	loadData()
-
-	const createCardNumber = () => {
-		const part1 = `${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}`;
-		const part2 = `${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}`;
-		const part3 = `${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}`;
-		const part4 = `${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}`;
-		return part1 + '-' + part2 + '-' + part3 + '-' + part4
-	}
+	const data = loadData();
 
 	const createCVV = () => {
 		return `${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}`
@@ -46,34 +36,28 @@ const Bank = function () {
 		return `${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}${Math.floor(Math.random()*10)}`
 	}
 
-	const ageCalculation = (birthDay) => {
+	const createCardNumber = () => {
+		return `${createPIN()}-${createPIN()}-${createPIN()}-${createPIN()}`
+	}
+
+	const calculateAge = (birthDay) => {
 		let ageDifMs = Date.now() - new Date(birthDay);
 		let ageDate = new Date(ageDifMs);
 		return Math.abs(ageDate.getUTCFullYear() - 1970)
 	}
 
 	const getClient = (passportID) => {
-			return clientsList.find(client => client.passportID === passportID)
+		const client = data.clients.find(client => client.passportID === passportID)
+		if (client && client.activeStatus) {
+			return client
+		} else {
+			throw {'message' : "We don't have that client"}
+		}
 	}
 
 	const activateClient = (passportID, firstName, lastName, birthDay) => {
-		const filtrateClient = getClient(passportID);
-		if (filtrateClient) {
-			if (filtrateClient.activeStatus) {
-				throw {
-					'message' : 'User already active'
-				}
-			} else {
-				getClient(passportID).activatinDate = new Date().toLocaleDateString();
-				getClient(passportID).activeStatus = true;
-				return getClient(passportID)
-			}
-		} else if (ageCalculation(birthDay) < 18) {
-			throw {
-		 		'message' : 'Client is too young'
-		 	}
-		} else {
-			clientsList.push({
+		if (calculateAge(birthDay) >= 18) {
+			data.clients.push({
 				passportID: passportID,
 				firstName: firstName,
 				lastName: lastName,
@@ -82,94 +66,88 @@ const Bank = function () {
 				activeStatus: true
 			});
 			return getClient(passportID)
+		} else {
+			throw {'message' : 'Client is too young'}
 		}
+		// getClient(passportID).activatinDate = new Date().toLocaleDateString();
+		// getClient(passportID).activeStatus = true;
+		// return getClient(passportID)
 	}
 
 	const deactivateClient = (passportID) => {
-		if (getClient(passportID)) {
-			getCards(passportID).forEach(card => card.activeStatus = false);
-			getClient(passportID).activeStatus = false;
-			return getClient(passportID)
-		} else {
-			throw {
-				'message' : "We don't have that client"
-			}
-		}
+		const client = getClient(passportID);
+		getCards(passportID).forEach(card => card.activeStatus = false);
+		client.activeStatus = false;
+		return client
 	}
 
 	const getCards = (passportID) => {
-		return cardsList.filter(card => card.passportID === passportID)
+		const cards = data.cards.filter(card => {
+			if (card.passportID === passportID && card.activeStatus) {
+				return card
+			}
+		});
+		if (cards) {
+			return cards
+		} else {
+			throw{'message' : 'Cards not found'}
+		}
 	}
 
-	const getCardWithNum = (cardNumber) => {
-		return cardsList.find( card => card.cardNumber === cardNumber)
+	const getCardByNum = (cardNumber) => {
+		const card = data.cards.find(card => card.cardNumber === cardNumber);
+		if (card && card.activeStatus) {
+			return card
+		} else {
+			throw{'message' : 'That card not found'}
+		}
 	}
 
 	const addCard = (passportID) => {
-		if (getClient(passportID) && getClient(passportID).activeStatus) {
-			const cardNumber = createCardNumber();
-			cardsList.push({
-				passportID: passportID,
-				cardNumber: cardNumber,
-				CVV: createCVV(),
-				PIN: createPIN(),
-				activationDate: new Date().toLocaleDateString(),
-				expiredDate: (new Date().getFullYear() + 2) + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate(),
-				balance: 0,
-				activeStatus: true
-			});
-			return getCardWithNum(cardNumber)
-		} else {
-			throw {
-				'message' : 'Firstly register client questionnaire'
-			}
-		}
+		const client = getClient(passportID);
+		const cardNumber = createCardNumber();
+		data.cards.push({
+			passportID: passportID,
+			cardNumber: cardNumber,
+			CVV: createCVV(),
+			PIN: createPIN(),
+			activationDate: new Date().toLocaleDateString(),
+			expiredDate: `${new Date().getFullYear() + 2}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+			balance: 0,
+			activeStatus: true
+		});
+		return getCardByNum(cardNumber)
 	}
 
 	const deactivateCard = (cardNumber) => {
-		if (getCardWithNum(cardNumber)) {
-			getCardWithNum(cardNumber).activeStatus = false;
-			return getCardWithNum(cardNumber)
-		} else {
-			throw {
-				'message' : 'That card not found'
-			}
-		}
+		const card = getCardByNum(cardNumber);
+		card.activeStatus = false;
+		return card
 	}
 
 	const updateCard = (cardNumber) => {
-		if (getCardWithNum(cardNumber) && getCardWithNum(cardNumber).activeStatus) {
-			const passportID = getCardWithNum(cardNumber).passportID;
-			const balance = cardsList.find(card => card.cardNumber === cardNumber).balance;
-			const newCardNum = createCardNumber();
-			deactivateCard(cardNumber);
-			cardsList.push({
-				passportID: passportID,
-				cardNumber: newCardNum,
-				CVV: createCVV(),
-				PIN: createPIN(),
-				activationDate: new Date().toLocaleDateString(),
-				expiredDate: (new Date().getFullYear() + 2) + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate(),
-				balance: balance,
-				activeStatus: true
-			});
-			return getCardWithNum(newCardNum)
-		} else {
-			throw {
-				'message' : "We don't have client with that card"
-			}
-		}
+		const card = getCardByNum(cardNumber);
+		const passportID = card.passportID;
+		const balance = card.balance;
+		const newCardNum = createCardNumber();
+		card.activeStatus = false;
+		data.cards.push({
+			passportID: passportID,
+			cardNumber: newCardNum,
+			CVV: createCVV(),
+			PIN: createPIN(),
+			activationDate: new Date().toLocaleDateString(),
+			expiredDate: `${new Date().getFullYear() + 2}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+			balance: balance,
+			activeStatus: true
+		});
+		return getCardByNum(newCardNum)
 	}
 
 	const updateBalance = (cardNumber, delta) => {
-		if (cardsList.filter(card => card.cardNumber === cardNumber).length > 0) {
-			cardsList.filter(card => card.cardNumber === cardNumber)[0].balance += delta;
-			return getCardWithNum(cardNumber)
-		} else {
-			throw {
-				'message' : 'That card not found'
-			}
-		}
+		const card = getCardByNum(cardNumber);
+		card.balance += delta;
+		return card
 	}
 
 	const savingChanges = (func) => {
@@ -197,7 +175,7 @@ const Bank = function () {
 		deactivateClient: errorsCatcher(savingChanges(deactivateClient)),
 
 		getCards: errorsCatcher(getCards),
-		getCardWithNum: errorsCatcher(getCardWithNum),
+		getCardByNum: errorsCatcher(getCardByNum),
 		addCard: errorsCatcher(savingChanges(addCard)),
 		deactivateCard: errorsCatcher(savingChanges(deactivateCard)),
 		updateCard: errorsCatcher(savingChanges(updateCard)),
@@ -254,7 +232,7 @@ const Interface = function () {
 					console.log('----------------------------------------');
 					rl.question('What the sum\n', (answerSum) => {
 						Bank.updateBalance(card.cardNumber, -parseInt(answerSum, 10));
-						console.log(`New balance is ${Bank.getCardWithNum(card.cardNumber).balance}`);
+						console.log(`New balance is ${Bank.getCardByNum(card.cardNumber).balance}`);
 						continueWork(card, questionsToClient, answersSystemClient);
 					});
 					break;
@@ -315,7 +293,7 @@ const Interface = function () {
 					break;
 				case '5': 
 					console.log('----------------------------------------');
-					actions589(Bank.getCardWithNum);
+					actions589(Bank.getCardByNum);
 					break;
 				case '6': 
 					console.log('----------------------------------------');
@@ -431,10 +409,10 @@ const Interface = function () {
 
 	const systemQA = () => {
 		rl.question('Please input your card number(or login if you an administrator))\n', (answer) => {
-			if (Bank.getCardWithNum(answer)) {
-				checkPIN(Bank.getCardWithNum(answer))			
-			} else if (hostList.find(host => host.login === answer)) {
-				checkPass(hostList.find(host => host.login === answer))
+			if (Bank.getCardByNum(answer)) {
+				checkPIN(Bank.getCardByNum(answer))			
+			} else if (adminsData.find(host => host.login === answer)) {
+				checkPass(adminsData.find(host => host.login === answer))
 			} else {
 				console.log('Account not found. Repeate please');
 				systemQA();
@@ -463,13 +441,13 @@ Interface.systemQA()
 /*
 Bank.activateClient('YU485926', 'John', 'Doe', '28/05/1985')
 Bank.activateClient('OU484526', 'Peter', 'Crugge', '10/10/2000')
-console.log(clientsList)
+console.log(data)
 
 console.log('-------------------------------------------')
 
 Bank.addCard('YU485926')
 Bank.addCard('OU484526')
-console.log(cardsList)
+console.log(data)
 
 // console.log('===========================================')
 */
