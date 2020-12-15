@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Input passport ID</title>
+
+   <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+   <form action="/menu/add-client" method="POST" autocomplete="off" class="menu m_top">
+      <div class="input wrapper_flex">
+         <label for="passID">Passport ID</label>
+         <input type="text" name="passID" id="passID">
+      </div>
+      <div class="input wrapper_flex">
+         <label for="first_name">First name</label>
+         <input type="text" name="firstName" id="first_name">
+      </div>
+      <div class="input wrapper_flex">
+         <label for="last_name">Last name</label>
+         <input type="text" name="lastName" id="last_name">
+      </div>
+      <div class="input wrapper_flex">
+         <label for="birth_day">Birth day</label>
+         <input type="text" name="birthDay" id="birth_day">
+      </div>
+      <button name="action" type="submit" value="addClientConfirm" class="btn">Confirm</button>
+      <button formaction="/menu" name="escape" type="submit" value="back" class="btn_border">Back</button>
+   </form>
+</body>
+
+</html>

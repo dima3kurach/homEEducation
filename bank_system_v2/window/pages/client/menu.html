@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Menu</title>
+
+   <link rel="stylesheet" type="text/css" href="./assets/style.css">
+</head>
+
+<body>
+   <h2 class="main_question">Menu</h2>
+   <form action="/menu/balance" method="POST" autocomplete="off" class="menu">
+      <button name="action" type="submit" value="viewBalance" class="btn">View balance</button>
+      <button formaction="/menu/withdraw-money" name="action" type="submit" value="withdrawMoney" class="btn">Withdraw
+         money</button>
+      <button formaction="/menu/put-money" name="action" type="submit" value="putMoney" class="btn">Put money</button>
+      <button formaction="/menu/change-pin" name="action" type="submit" value="changePIN" class="btn">Change
+         PIN</button>
+      <button formaction="/menu/deactivation" name="action" type="submit" value="deactivateCard" class="btn">Deactivate
+         card</button>
+      <button formaction="/" formmethod="GET" name="escape" type="submit" value="quit" class="btn">Quit</button>
+   </form>
+</body>
+
+</html>

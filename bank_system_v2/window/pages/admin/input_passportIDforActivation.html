@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Input passport ID</title>
+
+   <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+   <form action="/menu/activate-client" method="POST" autocomplete="off" class="sum">
+      <div class="wrapper">
+         <label for="passID">Passport ID</label>
+         <input type="text" name="passID" id="passID">
+      </div>
+      <button name="action" type="submit" value="activateClientConfirm" class="btn">Confirm</button>
+      <button formaction="/menu" name="escape" type="submit" value="back" class="btn_border">Back</button>
+   </form>
+</body>
+
+</html>

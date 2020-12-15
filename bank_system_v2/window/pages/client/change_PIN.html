@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Change PIN</title>
+
+   <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+   <form action="/menu/change-pin" method="POST" autocomplete="off" class="sum">
+      <div class="wrapper">
+         <label for="PIN">PIN</label>
+         <input type="password" name="oldPIN" id="PIN">
+      </div>
+      <div class="wrapper">
+         <label for="new_PIN">New PIN</label>
+         <input type="text" name="newPIN" id="new_PIN">
+      </div>
+      <button name="action" type="submit" value="changePINconfirm" class="btn">Confirm</button>
+      <button formaction="/menu" name="escape" type="submit" value="back" class="btn_border">Back</button>
+   </form>
+</body>
+
+</html>

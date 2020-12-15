@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Menu</title>
+
+   <link rel="stylesheet" type="text/css" href="./assets/style.css">
+</head>
+
+<body>
+   <h2 class="main_question">Menu</h2>
+   <form action="/menu/all-clients" method="POST" autocomplete="off" class="menu">
+      <button name="action" type="submit" value="viewAllClients" class="btn">View all clients</button>
+      <button formaction="/menu/client" name="action" type="submit" value="viewClient" class="btn">Find
+         client</button>
+      <button formaction="/menu/client-cards" name="action" type="submit" value="viewClientCards" class="btn">Find
+         client cards</button>
+      <button formaction="/menu/client-card" name="action" type="submit" value="viewClientCard" class="btn">Find client
+         card</button>
+      <button formaction="/menu/add-client" name="action" type="submit" value="addClient" class="btn">Add
+         client</button>
+      <button formaction="/menu/activate-client" name="action" type="submit" value="activateClient" class="btn">Activate
+         client</button>
+      <button formaction="/menu/deactivate-client" name="action" type="submit" value="deactivateClient"
+         class="btn">Deactivate client</button>
+      <button formaction="/menu/add-card" name="action" type="submit" value="addCard" class="btn">Add card</button>
+      <button formaction="/menu/refresh-card" name="action" type="submit" value="refreshCard" class="btn">Refresh
+         card</button>
+      <button formaction="/menu/deactivate-card" name="action" type="submit" value="deactivateCard"
+         class="btn">Deactivate card</button>
+      <button formaction="/" formmethod="GET" name="escape" type="submit" value="quit" class="btn">Quit</button>
+   </form>
+</body>
+
+</html>
