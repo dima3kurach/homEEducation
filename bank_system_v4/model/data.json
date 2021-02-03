@@ -1,0 +1,593 @@
+{
+   "admins": [
+      {
+         "position": "administrator",
+         "login": "admin",
+         "pass": "ad123"
+      }
+   ],
+   "clients": [
+      {
+         "passportID": "YU485926",
+         "firstName": "John",
+         "lastName": "Doe",
+         "birthDay": "28/05/1985",
+         "activatinDate": "2020-11-22",
+         "activeStatus": true
+      },
+      {
+         "passportID": "OU484526",
+         "firstName": "Peter",
+         "lastName": "Crugge",
+         "birthDay": "10/10/2000",
+         "activatinDate": "2020-11-22",
+         "activeStatus": true
+      },
+      {
+         "passportID": "MO212121",
+         "firstName": "Jina",
+         "lastName": "Coul",
+         "birthDay": "10/05/1985",
+         "activatinDate": "2020-11-23",
+         "activeStatus": true
+      },
+      {
+         "passportID": "MN454545",
+         "firstName": "Leo",
+         "lastName": "Neo",
+         "birthDay": "10/10/1980",
+         "activatinDate": "2020-11-29",
+         "activeStatus": true
+      },
+      {
+         "passportID": "HU459712",
+         "firstName": "Joan",
+         "lastName": "Roaling",
+         "birthDay": "03/11/1975",
+         "activatinDate": "2020-12-1",
+         "activeStatus": true
+      },
+      {
+         "passportID": "YI121212",
+         "firstName": "Lola",
+         "lastName": "Ololo",
+         "birthDay": "12-12-1998",
+         "activatinDate": "22.01.2021",
+         "activeStatus": true
+      },
+      {
+         "passportID": "NU457895",
+         "firstName": "Den",
+         "lastName": "Cory",
+         "birthDay": "10/25/1975",
+         "activatinDate": "15.12.2020",
+         "activeStatus": true
+      },
+      {
+         "passportID": "BT414278",
+         "firstName": "Nina",
+         "lastName": "Peru",
+         "birthDay": "08/15/1955",
+         "activatinDate": "15.01.2021",
+         "activeStatus": true
+      },
+      {
+         "passportID": "NM789423",
+         "firstName": "Denis",
+         "lastName": "Iris",
+         "birthDay": "08/05/1954",
+         "activatinDate": "16.01.2021",
+         "activeStatus": false
+      },
+      {
+         "passportID": "OO788945",
+         "firstName": "Roman",
+         "lastName": "Rasputin",
+         "birthDay": "05/06/1965",
+         "activatinDate": "23.01.2021",
+         "activeStatus": true
+      },
+      {
+         "passportID": "YU123456",
+         "firstName": "Zina",
+         "lastName": "Sokil",
+         "birthDay": "10/10/1972",
+         "activatinDate": "23.01.2021",
+         "activeStatus": true
+      },
+      {
+         "passportID": "VB456787",
+         "firstName": "Irina",
+         "lastName": "Var",
+         "birthDay": "06/05/1992",
+         "activatinDate": "23.01.2021",
+         "activeStatus": false
+      },
+      {
+         "passportID": "TR546321",
+         "firstName": "Wern",
+         "lastName": "Kiling",
+         "birthDay": "03/08/1998",
+         "activatinDate": "23.01.2021",
+         "activeStatus": true
+      },
+      {
+         "passportID": "QW789546",
+         "firstName": "Fil",
+         "lastName": "Tern",
+         "birthDay": "05/15/2000",
+         "activatinDate": "23.01.2021",
+         "activeStatus": true
+      }
+   ],
+   "cards": [
+      {
+         "passportID": "YU485926",
+         "cardNumber": "3720-1886-9431-4762",
+         "CVV": "879",
+         "PIN": "5555",
+         "activationDate": "2020-11-22",
+         "expiredDate": "2022-11-22",
+         "balance": 100,
+         "activeStatus": false
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "9215-3033-2064-5421",
+         "CVV": "433",
+         "PIN": "3217",
+         "activationDate": "2020-11-22",
+         "expiredDate": "2022-11-22",
+         "balance": 50,
+         "activeStatus": true
+      },
+      {
+         "passportID": "YU485926",
+         "cardNumber": "0678-4466-1158-8993",
+         "CVV": "130",
+         "PIN": "3205",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "YU485926",
+         "cardNumber": "1494-1950-2755-3490",
+         "CVV": "430",
+         "PIN": "9058",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "YU485926",
+         "cardNumber": "7579-1557-2087-1923",
+         "CVV": "510",
+         "PIN": "9097",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "1390-0895-0536-1237",
+         "CVV": "807",
+         "PIN": "5467",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "7799-5601-4542-5682",
+         "CVV": "015",
+         "PIN": "5541",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "1583-2161-2413-0293",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "6458-8776-1138-6651",
+         "CVV": "863",
+         "PIN": "1691",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "6217-9245-8634-2020",
+         "CVV": "705",
+         "PIN": "1111",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 45,
+         "activeStatus": true
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "3748-1360-1591-7498",
+         "CVV": "204",
+         "PIN": "8304",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "8292-3542-4319-2381",
+         "CVV": "619",
+         "PIN": "9646",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "YU485926",
+         "cardNumber": "6534-7039-1243-2640",
+         "CVV": "887",
+         "PIN": "3899",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "YU485926",
+         "cardNumber": "8027-0669-7943-9132",
+         "CVV": "587",
+         "PIN": "9231",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "MO212121",
+         "cardNumber": "8069-7314-5247-0356",
+         "CVV": "705",
+         "PIN": "0679",
+         "activationDate": "2020-11-23",
+         "expiredDate": "2022-11-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "MO212121",
+         "cardNumber": "0718-4810-2997-6986",
+         "CVV": "685",
+         "PIN": "2317",
+         "activationDate": "2020-11-24",
+         "expiredDate": "2022-11-24",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "MO212121",
+         "cardNumber": "7934-1866-0574-6674",
+         "CVV": "738",
+         "PIN": "2278",
+         "activationDate": "2020-11-24",
+         "expiredDate": "2022-11-24",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "MO212121",
+         "cardNumber": "8299-6702-8896-1686",
+         "CVV": "721",
+         "PIN": "0000",
+         "activationDate": "2020-11-24",
+         "expiredDate": "2022-11-24",
+         "balance": 300,
+         "activeStatus": true
+      },
+      {
+         "passportID": "HU459712",
+         "cardNumber": "3347-9205-4425-6887",
+         "CVV": "951",
+         "PIN": "5658",
+         "activationDate": "2020-12-1",
+         "expiredDate": "2022-12-1",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "MN454545",
+         "cardNumber": "6826-0714-0165-2218",
+         "CVV": "588",
+         "PIN": "6099",
+         "activationDate": "2020-12-1",
+         "expiredDate": "2022-12-1",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "YU485926",
+         "cardNumber": "1631-1036-4525-7463",
+         "CVV": "185",
+         "PIN": "0415",
+         "activationDate": "2020-12-1",
+         "expiredDate": "2022-12-1",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "YI121212",
+         "cardNumber": "5667-5296-1749-5957",
+         "CVV": "453",
+         "PIN": "8222",
+         "activationDate": "2020-12-1",
+         "expiredDate": "2022-12-1",
+         "balance": 80,
+         "activeStatus": false
+      },
+      {
+         "passportID": "NU457895",
+         "cardNumber": "4742-2235-4504-9398",
+         "CVV": "281",
+         "PIN": "8459",
+         "activationDate": "15.12.2020",
+         "expiredDate": "2022-12-15",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "YI121212",
+         "cardNumber": "5132-5116-2713-7594",
+         "CVV": "133",
+         "PIN": "3636",
+         "activationDate": "15.12.2020",
+         "expiredDate": "2022-12-15",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "NU457895",
+         "cardNumber": "9230-7924-7544-5934",
+         "CVV": "854",
+         "PIN": "3854",
+         "activationDate": "15.12.2020",
+         "expiredDate": "2022-12-15",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "NU457895",
+         "cardNumber": "5082-1243-5813-0819",
+         "CVV": "998",
+         "PIN": "5921",
+         "activationDate": "15.12.2020",
+         "expiredDate": "2022-12-15",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "NU457895",
+         "cardNumber": "3298-3130-3851-0431",
+         "CVV": "630",
+         "PIN": "7528",
+         "activationDate": "15.12.2020",
+         "expiredDate": "2022-12-15",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "YI121212",
+         "cardNumber": "2696-4121-2424-3044",
+         "CVV": "933",
+         "PIN": "9536",
+         "activationDate": "15.12.2020",
+         "expiredDate": "2022-12-15",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "BT414278",
+         "cardNumber": "2866-8639-4042-1127",
+         "CVV": "870",
+         "PIN": "0887",
+         "activationDate": "15.01.2021",
+         "expiredDate": "2023-1-15",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "BT414278",
+         "cardNumber": "3383-7866-7281-4198",
+         "CVV": "687",
+         "PIN": "8480",
+         "activationDate": "16.01.2021",
+         "expiredDate": "2023-1-16",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "NM789423",
+         "cardNumber": "9464-8710-6265-8167",
+         "CVV": "653",
+         "PIN": "3008",
+         "activationDate": "16.01.2021",
+         "expiredDate": "2023-1-16",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "7127-8715-6407-1237",
+         "CVV": "321",
+         "PIN": "2677",
+         "activationDate": "22.01.2021",
+         "expiredDate": "2023-1-22",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "YI121212",
+         "cardNumber": "5125-4640-8029-6715",
+         "CVV": "218",
+         "PIN": "9218",
+         "activationDate": "22.01.2021",
+         "expiredDate": "2023-1-22",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "YI121212",
+         "cardNumber": "5572-3823-9246-4446",
+         "CVV": "365",
+         "PIN": "7049",
+         "activationDate": "22.01.2021",
+         "expiredDate": "2023-1-22",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "YI121212",
+         "cardNumber": "7606-5094-5704-4573",
+         "CVV": "829",
+         "PIN": "8250",
+         "activationDate": "22.01.2021",
+         "expiredDate": "2023-1-22",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "YI121212",
+         "cardNumber": "8531-1350-9344-6329",
+         "CVV": "880",
+         "PIN": "6295",
+         "activationDate": "22.01.2021",
+         "expiredDate": "2023-1-22",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "BT414278",
+         "cardNumber": "3953-3442-7715-0673",
+         "CVV": "775",
+         "PIN": "7848",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "BT414278",
+         "cardNumber": "8211-4254-9552-6010",
+         "CVV": "891",
+         "PIN": "7317",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "0273-2722-3077-9483",
+         "CVV": "697",
+         "PIN": "0960",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "YU485926",
+         "cardNumber": "1837-6393-6135-7102",
+         "CVV": "312",
+         "PIN": "5765",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 100,
+         "activeStatus": true
+      },
+      {
+         "passportID": "OO788945",
+         "cardNumber": "8890-5761-7430-9798",
+         "CVV": "781",
+         "PIN": "4521",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "YU123456",
+         "cardNumber": "8244-7505-3827-2507",
+         "CVV": "657",
+         "PIN": "5152",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "VB456787",
+         "cardNumber": "4905-6127-8416-0271",
+         "CVV": "462",
+         "PIN": "1955",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": false
+      },
+      {
+         "passportID": "TR546321",
+         "cardNumber": "5167-3818-6292-1842",
+         "CVV": "364",
+         "PIN": "5807",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "QW789546",
+         "cardNumber": "0442-2192-8972-9379",
+         "CVV": "461",
+         "PIN": "0199",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "9945-0902-0057-8353",
+         "CVV": "736",
+         "PIN": "6467",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": true
+      },
+      {
+         "passportID": "OU484526",
+         "cardNumber": "4566-0512-5597-3648",
+         "CVV": "053",
+         "PIN": "7315",
+         "activationDate": "23.01.2021",
+         "expiredDate": "2023-1-23",
+         "balance": 0,
+         "activeStatus": true
+      }
+   ]
+}
