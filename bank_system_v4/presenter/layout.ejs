@@ -13,57 +13,70 @@
 
 <body>
    <% if (h1) {%>
-      <h1 class=<%=h1.style %>><%=h1.text %>
+      <h1 class="<%=h1.style %>">
+         <%=h1.text %>
       </h1>
       <% } %>
          <% if (h2) {%>
-            <h2 class=<%=h2.style %>><%=h2.text %>
+            <h2 class="<%=h2.style %>">
+               <%=h2.text %>
             </h2>
             <% } %>
-               <form action="/" method=<%=form.method %> autocomplete="off" class=<%=form.style %>>
-                     <% if (form.list && form.list.length>1) {%>
+               <form action="/" method="<%=form.method %>" autocomplete="off" class="<%=form.style %>">
+                  <% if (form.list && form.list.length>1) {%>
+                     <ul>
+                        <% form.list.forEach(function(elem){%>
+                           <li>
+                              <% Object.entries(elem.unit).forEach(function([key,value]){%>
+                                 <span>
+                                    <%=key %>
+                                 </span>
+                                 <%=value %><br>
+                                    <% }) %>
+                                       <button name="<%=elem.name %>" type="submit" value="<%=elem.value %>"
+                                          class="<%=elem.style %>">
+                                          <%=elem.text %>
+                                       </button>
+                                       <hr>
+                           </li>
+                           <% }) %>
+                     </ul>
+                     <% } else if (form.list) {%>
                         <ul>
-                           <% form.list.forEach(function(elem){%>
-                              <li>
-                                 <% Object.entries(elem.unit).forEach(function([key,value]){%>
-                                    <span>
-                                       <%=key %>
-                                    </span>
-                                    <%=value %><br>
-                                       <% }) %>
-                                          <button name=<%=elem.name %> type="submit" value=<%=elem.value %>
-                                                class=<%=elem.style %>><%=elem.text %></button>
-                                          <hr>
-                              </li>
-                              <% }) %>
-                                 <% } else if (form.list) {%>
-                                    <li>
-                                       <% Object.entries(form.list[0].unit).forEach(function([key,value]){%>
-                                          <span>
-                                             <%=key %>
-                                          </span>
-                                          <%=value %><br>
-                                             <% }) %>
-                                    </li>
+                           <li>
+                              <% Object.entries(form.list[0].unit).forEach(function([key,value]){%>
+                                 <span>
+                                    <%=key %>
+                                 </span>
+                                 <%=value %><br>
+                                    <% }) %>
+                           </li>
                         </ul>
                         <% } %>
-                           <% if (form.key) {%> <input type="hidden" name=<%=form.key.name%> value=<%=form.key.value%>>
-                                 <% } %>
-                                    <% for(let i=0; i<form.inputs.length; ++i) {%>
-                                       <div class=<%=form.inputs[i].style %>>
-                                          <label>
-                                             <%=form.inputs[i].label %>
-                                                <input type=<%=form.inputs[i].type %> name=<%=form.inputs[i].name %>>
-                                          </label>
-                                       </div>
-                                       <%} %>
-                                          <% for(let i=0; i<form.btns.length; ++i) {%>
-                                             <button name=<%=form.btns[i].name %> type="submit" value=
-                                                <%=form.btns[i].value %>
-                                                   class=<%=form.btns[i].style %>><%=form.btns[i].text %>
-                                             </button>
-                                             <%} %>
+                           <% if (form.key) {%> <input type="hidden" name="<%=form.key.name%>"
+                                 value="<%=form.key.value%>">
+                              <% } %>
+                                 <% for(let i=0; i<form.inputs.length; ++i) {%>
+                                    <div class="<%=form.inputs[i].style %>">
+                                       <label>
+                                          <%=form.inputs[i].label %>
+                                             <input <% if (form.inputs[i].id) {%> id="<%=form.inputs[i].id %>"
+                                                <% } %> type="<%=form.inputs[i].type %>" name=
+                                                      "<%=form.inputs[i].name %>">
+                                       </label>
+                                    </div>
+                                    <%} %>
+                                       <div class="errors"></div>
+                                       <% for(let i=0; i<form.btns.length; ++i) {%>
+                                          <button <% if (form.btns[i].id) {%> id="<%=form.btns[i].id %>"
+                                                <% } %> name="<%=form.btns[i].name %>" type="submit" value=
+                                                      "<%=form.btns[i].value %>"
+                                                         class="<%=form.btns[i].style%>"><%=form.btns[i].text %>
+                                          </button>
+                                          <%} %>
                </form>
+
+               <script src="../assets/scripts.js"></script>
 
 </body>
 

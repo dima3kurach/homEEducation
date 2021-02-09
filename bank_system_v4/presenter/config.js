@@ -177,12 +177,14 @@ const pageConfiguration = {
                inputs: [
                   {
                      label: 'Login',
+                     id: 'adminId',
                      type: 'text',
                      name: 'id',
                      style: 'wrapper',
                   },
                   {
                      label: 'Pass',
+                     id: 'adminSecret',
                      type: 'password',
                      name: 'secret',
                      style: 'wrapper',
@@ -191,9 +193,10 @@ const pageConfiguration = {
                btns: [
                   {
                      name: 'loginSubmit',
+                     id: 'confirm',
                      value: admin,
                      text: 'Submit',
-                     style: 'btn'
+                     style: 'btn lock'
                   }
                ]
             }
@@ -345,9 +348,10 @@ const pageConfiguration = {
                   },
                   {
                      name: 'viewNewClient',
+                     id: 'confirm',
                      value: session.key,
                      text: 'Confirm',
-                     style: 'btn'
+                     style: 'btn lock'
                   }
                ]
             }
@@ -383,9 +387,10 @@ const pageConfiguration = {
                   },
                   {
                      name: 'viewClient',
+                     id: 'confirm',
                      value: session.key,
                      text: 'Confirm',
-                     style: 'btn'
+                     style: 'btn lock'
                   }
                ]
             }
@@ -591,9 +596,10 @@ const pageConfiguration = {
                   },
                   {
                      name: 'viewCard',
+                     id: 'confirm',
                      value: session.key,
                      text: 'Confirm',
-                     style: 'btn'
+                     style: 'btn lock'
                   }
                ]
             }
@@ -629,9 +635,10 @@ const pageConfiguration = {
                   },
                   {
                      name: 'viewCard',
+                     id: 'confirm',
                      value: session.key,
                      text: 'Confirm',
-                     style: 'btn'
+                     style: 'btn lock'
                   }
                ]
             }
@@ -783,9 +790,10 @@ const pageConfiguration = {
                btns: [
                   {
                      name: 'loginSubmit',
+                     id: 'confirm',
                      value: client,
                      text: 'Submit',
-                     style: 'btn'
+                     style: 'btn lock'
                   }
                ]
             }
@@ -919,6 +927,7 @@ const pageConfiguration = {
                   },
                   {
                      name: 'viewBalance',
+                     id: 'confirm',
                      value: session.key,
                      text: 'Confirm',
                      style: 'btn'
@@ -957,6 +966,7 @@ const pageConfiguration = {
                   },
                   {
                      name: 'viewBalance',
+                     id: 'confirm',
                      value: session.key,
                      text: 'Confirm',
                      style: 'btn'
@@ -1001,6 +1011,7 @@ const pageConfiguration = {
                   },
                   {
                      name: 'success',
+                     id: 'confirm',
                      value: session.key,
                      text: 'Confirm',
                      style: 'btn'

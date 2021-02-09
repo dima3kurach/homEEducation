@@ -84,7 +84,7 @@ const Bank = function () {
 			firstName: firstName,
 			lastName: lastName,
 			birthDay: birthDay,
-			activatinDate: moment(),
+			activatinDate: moment().format('YYYY-MM-DD'),
 			activeStatus: true
 		})
 		return { client: getClient(passportID), card: addCard(passportID) }
@@ -95,7 +95,7 @@ const Bank = function () {
 		if (client.activeStatus) {
 			throw { message: 'Client is already active' }
 		}
-		client.activatinDate = moment()
+		client.activatinDate = moment().format('YYYY-MM-DD')
 		client.activeStatus = true
 		return { client: client, card: addCard(passportID) }
 	}
@@ -135,8 +135,8 @@ const Bank = function () {
 			cardNumber: cardNumber,
 			CVV: createCVV(),
 			PIN: createPIN(),
-			activationDate: moment(),
-			expiredDate: moment().add(2, 'years'),
+			activationDate: moment().format('YYYY-MM-DD'),
+			expiredDate: moment().add(2, 'years').format('YYYY-MM-DD'),
 			balance: 0,
 			activeStatus: true
 		});
@@ -160,8 +160,8 @@ const Bank = function () {
 			cardNumber: newCardNum,
 			CVV: createCVV(),
 			PIN: createPIN(),
-			activationDate: moment(),
-			expiredDate: moment().add(2, 'years'),
+			activationDate: moment().format('YYYY-MM-DD'),
+			expiredDate: moment().add(2, 'years').format('YYYY-MM-DD'),
 			balance: balance,
 			activeStatus: true
 		});

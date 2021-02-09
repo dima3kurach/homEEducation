@@ -21,6 +21,7 @@ const sessionHistory = (history, currentPage) => {
 }
 
 app.set("view engine", "ejs")
+//app.locals.rmWhitespace = false
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/assets', express.static(`${__dirname}/../../presenter/assets`))
 
@@ -149,7 +150,7 @@ app.post('/', jsonParser, (req, res) => {
       }
       //Find card
       emptyInputError(req.body.viewCard, req.body.cardNum)
-      if (req.body.cardNum) {
+      if (req.body.cardNum && req.body.viewCard) {
          const session = sessionCatcher(req.body.viewCard)
          const findClientCard = card => {
             if (card.passportID === session.cookie.cards[0].passportID && card.cardNumber === req.body.cardNum)
@@ -190,12 +191,12 @@ app.post('/', jsonParser, (req, res) => {
 
       //CLIENT(actions)----------------------
       //Withdraw money
-      if (req.body.summMinus <= 0)
+      if (req.body.viewBalance && req.body.summMinus && req.body.summMinus <= 0)
          throw {
             message: 'Wrong summ',
             session: sessionCatcher(req.body.viewBalance)
          }
-      if (parseInt(req.body.summMinus)) {
+      if (req.body.viewBalance && parseInt(req.body.summMinus)) {
          const id = sessionCatcher(req.body.viewBalance).id
          const summ = parseInt(req.body.summMinus)
          const balance = bank.getCardByNum(id).balance
@@ -207,12 +208,12 @@ app.post('/', jsonParser, (req, res) => {
          bank.updateBalance(id, -summ)
       }
       //Put money
-      if (req.body.summPlus <= 0)
+      if (req.body.viewBalance && req.body.summPlus && req.body.summPlus <= 0)
          throw {
             message: 'Wrong summ',
             session: sessionCatcher(req.body.viewBalance)
          }
-      if (parseInt(req.body.summPlus)) {
+      if (req.body.viewBalance && parseInt(req.body.summPlus)) {
          const id = sessionCatcher(req.body.viewBalance).id
          const summ = parseInt(req.body.summPlus)
          bank.updateBalance(id, summ)
@@ -225,7 +226,7 @@ app.post('/', jsonParser, (req, res) => {
          }
       }
       //Change PIN
-      if (parseInt(req.body.newPIN) > 999 & parseInt(req.body.newPIN) < 10000) {
+      if (req.body.success && parseInt(req.body.newPIN) > 999 && parseInt(req.body.newPIN) < 10000) {
          const id = sessionCatcher(req.body.success).id
          const oldPIN = req.body.oldPIN
          const newPIN = req.body.newPIN
@@ -235,7 +236,7 @@ app.post('/', jsonParser, (req, res) => {
                session: sessionCatcher(req.body.success)
             }
          bank.changePIN(id, newPIN)
-      } else if (req.body.newPIN) {
+      } else if (req.body.success && req.body.newPIN) {
          throw {
             message: 'Incorrect new PIN',
             session: sessionCatcher(req.body.success)
