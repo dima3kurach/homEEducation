@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>
+      <%=title %>
+   </title>
+
+   <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+   <% if (h1) {%>
+      <h1 class="<%=h1.style %>">
+         <%=h1.text %>
+      </h1>
+      <% } %>
+         <% if (h2) {%>
+            <h2 class="<%=h2.style %>">
+               <%=h2.text %>
+            </h2>
+            <% } %>
+               <form action="/" method="<%=form.method %>" autocomplete="off" class="<%=form.style %>">
+                  <% for(let i=0; i<form.hidden.length; ++i) {%> <input type="hidden" name="<%=form.hidden[i].name%>"
+                        value="<%=form.hidden[i].value%>">
+                     <% } %>
+                        <% if (form.list) {%>
+                           <ul>
+                              <% form.list.forEach(function(elem){%>
+                                 <li>
+                                    <% Object.entries(elem.unit).forEach(function([key,value]){%>
+                                       <span>
+                                          <%=key %>
+                                       </span>
+                                       <%=value %><br>
+                                          <% }) %>
+                                             <% if (elem.name) {%>
+                                                <button name="<%=elem.name %>" type="submit" value="<%=elem.value %>"
+                                                   class="<%=elem.style %>"
+                                                   onclick="document.querySelector('input[name=passID]').value ='<%=elem.passID %>'">
+                                                   <%=elem.text %>
+                                                </button>
+                                                <hr>
+                                                <% } %>
+                                 </li>
+                                 <% }) %>
+                           </ul>
+                           <% } %>
+                              <% for(let i=0; i<form.inputs.length; ++i) {%>
+                                 <div class="<%=form.inputs[i].style %>">
+                                    <label>
+                                       <%=form.inputs[i].label %>
+                                          <input <% if (form.inputs[i].id) {%> id="<%=form.inputs[i].id %>"
+                                             <% } %> type="<%=form.inputs[i].type %>" name=
+                                                   "<%=form.inputs[i].name %>">
+                                    </label>
+                                 </div>
+                                 <%} %>
+                                    <% for(let i=0; i<form.btns.length; ++i) {%>
+                                       <button <% if (form.btns[i].id) {%> id="<%=form.btns[i].id %>"
+                                             <% } %> name="<%=form.btns[i].name %>" type="submit" value=
+                                                   "<%=form.btns[i].value %>"
+                                                      class="<%=form.btns[i].style%>"><%=form.btns[i].text %>
+                                       </button>
+                                       <%} %>
+               </form>
+
+               <script src="../assets/scripts.js"></script>
+
+</body>
+
+</html>
