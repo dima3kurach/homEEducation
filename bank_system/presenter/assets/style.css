@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap");
+
+* {
+   font-family: "Titillium Web", sans-serif;
+}
+
+.err_input {
+   background-color: rgb(255, 254, 249);
+   border: 1px solid rgb(255, 158, 146);
+}
+
+.err_message::after {
+   content: var(--err);
+   display: block;
+   font-size: 13px;
+   font-weight: 400;
+   color: rgb(214, 5, 22);
+   text-align: left;
+   margin-top: 2px;
+}
