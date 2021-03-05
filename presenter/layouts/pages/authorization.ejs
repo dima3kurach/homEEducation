@@ -1,0 +1,52 @@
+<div class="d-flex min-vh-100 justify-content-center">
+   <div class="container">
+      <div class="row d-flex justify-content-center mt-5 mb-4">
+         <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <img src="../assets/img/logo.svg" alt="logo" class="d-block img-fluid mx-auto mb-3">
+         </div>
+      </div>
+      <div class="row d-flex justify-content-center mb-3">
+         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <nav>
+               <div class="nav nav-tabs container p-0 rounded-top" id="nav-tab" role="tablist">
+                  <button class="nav-link active col text-center pt-4 block-bg" id="nav-client-tab" data-bs-toggle="tab"
+                     data-bs-target="#nav-client" type="button" role="tab" aria-controls="nav-client"
+                     aria-selected="true">Client
+                     <hr class="tab-delim mt-4">
+                  </button>
+                  <button class="nav-link col text-center pt-4 block-bg-disabled" id="nav-admin-tab"
+                     data-bs-toggle="tab" data-bs-target="#nav-admin" type="button" role="tab" aria-controls="nav-admin"
+                     aria-selected="false">Admin
+                     <hr class="tab-delim mt-4 invisible">
+                  </button>
+               </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+               <div class="tab-pane fade show active block-bg rounded-bottom" id="nav-client" role="tabpanel"
+                  aria-labelledby="nav-client-tab">
+                  <div class="py-5">
+
+                     <%- include('../partials/authorization_form', {form: form.client}) %>
+
+                  </div>
+               </div>
+               <div class="tab-pane fade block-bg rounded-bottom" id="nav-admin" role="tabpanel"
+                  aria-labelledby="nav-admin-tab">
+                  <div class="py-5">
+
+                     <%- include('../partials/authorization_form', {form: form.admin}) %>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+         <div class="col">
+            <p class="loginFoot mb-4 mt-3">
+               &#169;2021 - BSInc.
+            </p>
+         </div>
+      </div>
+   </div>
+</div>

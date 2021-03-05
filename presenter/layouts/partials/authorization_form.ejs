@@ -1,0 +1,23 @@
+<form action="/" method="<%= form.method %>" autocomplete="off">
+   <input type="hidden" name="<%= form.hidden.name %>" value="<%= form.hidden.value %>">
+   <div class="w-75 mx-auto mb-3">
+      <label for="<%= form.inputs[0].id %>" class="form-label">
+         <%= form.inputs[0].label %>
+      </label>
+      <input type="<%= form.inputs[0].type %>" class="form-control" id="<%= form.inputs[0].id %>"
+         name="<%= form.inputs[0].name %>" placeholder="<%= form.inputs[0].placeholder %>">
+   </div>
+   <div class="w-75 mx-auto mb-5">
+      <label for="<%= form.inputs[1].id %>" class="form-label">
+         <%= form.inputs[1].label %>
+      </label>
+      <input type="<%= form.inputs[1].type %>" class="form-control" id="<%= form.inputs[1].id %>"
+         name="<%= form.inputs[1].name %>" placeholder="<%= form.inputs[1].placeholder %>">
+   </div>
+   <div class="w-75 mx-auto mb-2">
+      <button type="submit" name="<%= form.btns[0].name %>" value="<%= form.btns[0].value %>"
+         id="<%= form.btns[0].id %>" class="btn btn-primary btn-lg w-100">
+         <%= form.btns[0].text %>
+      </button>
+   </div>
+</form>
